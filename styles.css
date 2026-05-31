@@ -1,0 +1,461 @@
+:root {
+	/* text */
+	--color-reversed-text: #E8EDF0;
+	--color-link: #ff8800;
+	--color-primary-text: #2C3E45;
+	--color-primary-text-heading: #2A3439;
+	--color-secondary-text-heading: #31789c;
+	--color-tertiary-text-heading: #7A96A2;
+	--text-xs: clamp(0.75rem, 1.2vw, .75rem);
+	--text-sm: clamp(0.85rem, 1.5vw, 1rem);
+	--text-base: clamp(1rem, 2vw, 1.125rem);
+	--text-lg: clamp(1.125rem, 2.5vw, 1.5rem);
+	--text-xl: clamp(1.3rem, 3vw, 2.0rem);
+
+	/* background color */
+	--color-reversed-bg: #2A3439;
+	--color-primary-bg: #F0F4F6;
+	--color-secondary-bg: #7A96A2;
+	--color-body-bg: #efefef;
+
+	/* borders */
+	--color-primary-border: #7a96A2;
+
+	/* spacing */
+	--space-sm: clamp(0.25rem, 2vw, .5rem);
+	--space-md: clamp(.5rem, 4vw, 1rem);
+	--space-lg: clamp(1rem, 6vw, 2rem);
+	--space-xl: clamp(1.5rem, 10vw, 3rem);
+
+	--text-line-height: 1.4rem;
+	--border-radius-primary: .50rem;
+	--max-content-width: 800px;
+}
+
+html {
+	scroll-behavior: smooth;
+	/* Enables smooth scrolling */
+	scroll-padding-top: 120px;
+	/* Offset for sticky header when scrolling to anchors */
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	font-size: var(--text-base);
+	font-family: 'pt sans', sans-serif;
+	background: var(--color-body-bg);
+	color: var(--color-primary-text);
+	line-height: 1;
+}
+
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	line-height: inherit;
+}
+
+a {
+	color: var(--color-link);
+	text-decoration: none;
+}
+
+header {
+	z-index: 10;
+	background: var(--color-reversed-bg);
+	color: var(--color-reversed-text);
+	position: sticky;
+	top: 0;
+	padding: var(--space-sm) var(--space-md);
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--space-lg);
+	border-bottom: .1em solid var(--color-primary-border);
+	align-items: flex-start;
+}
+
+
+.headerBrand {
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.logoLink {
+	display: block;
+	color: inherit;
+}
+
+.logoLink:hover {
+	opacity: 0.9;
+}
+
+.logo {
+	display: block;
+	height: 3rem;
+	width: auto;
+	color: var(--color-secondary-bg);
+}
+
+.name {
+	font-size: var(--text-xl);
+}
+.jobTitle {
+	font-size: var(--text-md);
+}
+
+footer {
+	padding: var(--space-md);
+	text-align: center;
+	font-size: var(--text-xs);
+	color: var(--color-tertiary-text-heading);
+	border-top: .1em solid var(--color-primary-border);
+}
+
+.spacedLetters {
+	letter-spacing: .2rem;
+}
+
+.externalLinks {
+	display: flex;
+	gap: var(--space-md);
+	align-items: center;
+}
+
+nav {
+	position: absolute;
+	right: var(--space-md);
+	bottom: calc(var(--space-md) * -1);
+	padding: var(--space-sm) var(--space-md);
+	background: var(--color-primary-bg);
+	border-radius: var(--border-radius-primary);
+	border: .1em solid var(--color-primary-border);
+}
+
+.navigationList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-weight: normal;
+}
+
+.navigationList>li {
+	display: inline-block;
+	padding: 0 var(--space-sm);
+	font-size: var(--text-sm);
+	border-right: 1px solid var(--color-primary-border);
+}
+	.navigationList>li:last-of-type {
+		padding-right: 0;
+		border-right: none;
+	}
+
+main:target {
+	animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+	0% {
+		background-color: var(--color-secondary-bg);
+	}
+
+	100% {
+		background-color: transparent;
+	}
+}
+
+main {
+	display: block;
+	z-index: 1;
+	padding: 0 var(--space-md);
+	max-width: 900px;
+	margin: 0 auto var(--space-xl) auto;
+}
+
+main > details,
+main > section {
+	margin-left: var(--space-xl);
+}
+
+p, li {
+	font-size: var(--text-sm);
+}
+
+blockquote {
+	font-style: italic;
+	margin: 0 0 var(--space-md) var(--space-md);
+	border-left: 2px solid var(--color-primary-border);
+	padding-left: var(--space-md);
+	float: right;
+	font-size: var(--text-lg);
+	width: 30%;
+	line-height: 1.5;
+	> a {
+		display: block;
+		text-align: right;
+		font-size: var(--text-sm);
+		font-style: normal;
+		margin-top: var(--space-sm);
+	}
+}
+
+hr {
+	margin: var(--space-lg);
+	color: var(--color-secondary-bg);
+	opacity: .2;
+}
+
+main>h2 {
+	margin:0;
+	padding: 0 0 var(--space-xl) 0;
+}
+
+section>h3,
+section>h4,
+section>ul,
+section>p {
+	line-height: var(--text-line-height);
+	margin-bottom: var(--space-md);
+}
+
+section>h3 {
+	color: var(--color-secondary-text-heading);
+}
+
+.skills {
+	font-size: var(--text-sm);
+	line-height: 1.5;
+}
+
+details {
+	border: 1px solid var(--color-primary-border);
+	border-radius: var(--border-radius-primary);
+	margin-bottom: var(--space-md);
+	overflow: hidden;
+	background: var(--color-primary-bg);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::marker {
+  display: none;
+	font-size: 0;
+}
+
+/* Add a custom arrow using ::before */
+summary::before {
+  content: '>'; /* Right-pointing triangle */
+  margin-right: 0.5em;
+  display: inline-block;
+  transition: transform 0.2s; /* Smooth transition for rotation */
+}
+
+/* Rotate the arrow when the details element is open */
+details[open] summary::before {
+  transform: rotate(90deg); /* Down-pointing triangle effect */
+}
+
+
+summary {
+	padding: var(--space-md);
+	background: var(--color-primary-bg);
+	border-bottom: 1px solid var(--color-primary-border);
+	cursor: pointer;
+	font-size: var(--text-sm);
+	font-weight: bold;
+	color: var(--color-secondary-text-heading);
+}
+
+/* don't use ::details-content here because it is applied whether the details element is open or closed */
+details section {
+	padding: var(--space-md);
+}
+
+/* experiment with this later, wasn't working quite as expected */
+/* ::details-content {
+  transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+  height: 100%;
+  overflow: clip;
+} */
+
+
+details[open] section {
+  animation: animateDown 0.2s linear forwards;
+}
+
+@keyframes animateDown {
+  0% {
+    opacity: 0;
+    transform: translatey(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+section ul {
+	margin-left: var(--space-lg);
+	list-style: none;
+
+	>li {
+		margin-bottom: var(--space-sm);
+		position: relative;
+	}
+
+	>li::before {
+		content: "➤";
+		position: absolute;
+		left: -1.2rem;
+		color: var(--color-tertiary-text-heading);
+		font-size: .75rem;
+		line-height: inherit;
+	}
+}
+
+.alignContent {
+	display: flex;
+	gap: .3rem;
+}
+
+/* once more than 1 icon is present, start a sprite */
+.icon {
+	background: url(images/icons/icons_small.png) no-repeat;
+	width: 25px;
+	height: 25px;
+	display: block;
+}
+
+/* Make SVG icons responsive and controllable via CSS */
+.icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.textSm {
+	font-size: var(--text-sm);
+}
+
+.textXs {
+	font-size: var(--text-xs);
+}
+
+.textXxs {
+	font-size: clamp(0.4rem, .4vw, .4rem);
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.imageLink {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.imageLink:hover .imageContainer > img {
+	opacity: 0.9;
+}
+
+.imageContainer {
+	float: right;
+	width: 150px;
+	margin-left: var(--space-md);
+	margin-bottom: var(--space-md);
+	> img {
+		width: 100%;
+		height: auto;
+		display: block;
+		transition: opacity 0.2s ease;
+	}
+}
+
+
+.lightbox {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	background: rgba(0, 0, 0, 0.85);
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-lg);
+	box-sizing: border-box;
+}
+
+.lightbox:target {
+	display: flex;
+}
+
+body:has(.lightbox:target) {
+	overflow: hidden;
+}
+
+.lightbox img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.lightboxClose {
+	position: absolute;
+	top: var(--space-md);
+	right: var(--space-md);
+	background: rgba(255, 255, 255, 0.2);
+	color: var(--color-link);
+	font-size: var(--text-lg);
+	line-height: 1;
+	text-decoration: none;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+}
+
+.lightboxClose:hover {
+	color: #fff;
+	background: var(--color-secondary-bg);
+}
+
+.tooltipTrigger {
+	position: relative;
+}
+
+.tooltipTrigger:hover .tooltipContent {
+	display: block;
+	z-index: 100;
+}
+
+.tooltipContent {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: max-content;
+	max-width: 200px;
+	transform: translateX(-50%);
+	background: var(--color-primary-bg);
+	color: var(--color-primary-text);
+	font-size: var(--text-xs);
+	line-height: 1.2;
+	padding: var(--space-sm);
+	border-radius: var(--border-radius-primary);
+	border: 1px solid var(--color-primary-border);
+}
